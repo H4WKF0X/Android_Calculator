@@ -26,6 +26,8 @@ EMPTY, LONE_ZERO, DIGIT, DOT, OP, NEG_EMPTY, MINUS, OPEN, CLOSE
 
 Every button press maps to one of these states and the transition rules are defined in a lookup table. A stack mirrors the input string character by character, storing the state and open parenthesis count at each position. This makes backspace trivial -> pop the stack, restore the previous state.
 
+See [docs/input_rules.md](docs/input_rules.md) for the full input rules table.
+
 ### Tokenizer
 
 Takes the raw input string and converts it into a flat list of typed tokens before parsing:
