@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:id="@+id/CalcGrid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/buttonC"
+                style="@style/CalcButton"
+                android:backgroundTint="#A1A1A6"
+                android:text="@string/btn_backspace" />
+
+            <Button
+                android:id="@+id/buttonOpenParen"
+                style="@style/CalcButton"
+                android:backgroundTint="#A1A1A6"
+                android:text="@string/btn_open_paren" />
+
+            <Button
+                android:id="@+id/buttonCloseParen"
+                style="@style/CalcButton"
+                android:backgroundTint="#A1A1A6"
+                android:text="@string/btn_close_paren" />
+
+            <Button
+                android:id="@+id/buttonDiv"
+                style="@style/CalcButton"
+                android:backgroundTint="#FF9500"
+                android:text="@string/btn_div" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_seven" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_eight" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_nine" />
+
+            <Button
+                android:id="@+id/buttonMul"
+                style="@style/CalcButton"
+                android:backgroundTint="#FF9500"
+                android:text="@string/btn_mul" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_four" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_five" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_six" />
+
+            <Button
+                android:id="@+id/buttonSub"
+                style="@style/CalcButton"
+                android:backgroundTint="#FF9500"
+                android:text="@string/btn_sub" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_one" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_two" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_three" />
+
+            <Button
+                android:id="@+id/buttonAdd"
+                style="@style/CalcButton"
+                android:backgroundTint="#FF9500"
+                android:text="@string/btn_add" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/buttonPow"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_pow" />
+
+            <Button
+                android:id="@+id/button0"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_zero" />
+
+            <Button
+                android:id="@+id/buttonDot"
+                style="@style/CalcButton"
+                android:backgroundTint="#636366"
+                android:text="@string/btn_dot" />
+
+            <Button
+                android:id="@+id/buttonEq"
+                style="@style/CalcButton"
+                android:backgroundTint="#FF9500"
+                android:text="@string/btn_eq" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="end|center_vertical"
+        android:text="0"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="36sp"
+        android:autoSizeMaxTextSize="96sp"
+        android:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/CalcGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

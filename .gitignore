@@ -1,0 +1,50 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*~
+
+# IntelliJ/Android Studio
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Keystore files
+*.keystore
+*.jks
+app/release/
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# Captures
+/captures
