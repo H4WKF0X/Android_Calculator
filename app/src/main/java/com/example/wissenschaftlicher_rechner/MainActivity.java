@@ -17,6 +17,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     TextView display;
+    TextView history;
     InputHandler inputHandler = new InputHandler();
 
     @Override
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         display = findViewById(R.id.textView);
+        history = findViewById(R.id.historyView);
         updateDisplay();
 
         int[] digitIds = {
@@ -87,18 +89,18 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.buttonEq).setOnClickListener(v -> {
             try {
+                updateHistory();
                 String expression = inputHandler.getExpressionForEvaluation();
                 List<Token> tokens = Tokenizer.tokenize(expression);
                 double result = Parser.evaluate(tokens);
 
-                // round to 10 significant figures to avoid floating point noise
+                // round to 6 significant figures
                 java.math.BigDecimal bd = new java.math.BigDecimal(result)
-                        .round(new java.math.MathContext(10));
+                        .round(new java.math.MathContext(6));
                 double rounded = bd.doubleValue();
 
-                // check for overflow
                 if (Double.isInfinite(rounded) || Double.isNaN(rounded)) {
-                    display.setText("Error");
+                    display.setText("Overflow");
                     return;
                 }
 
@@ -107,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                // format — integer if whole number, plain string to avoid scientific notation
                 String resultStr = rounded == (long) rounded
                         ? String.valueOf((long) rounded)
                         : bd.stripTrailingZeros().toPlainString();
@@ -122,5 +123,9 @@ public class MainActivity extends AppCompatActivity {
 
     void updateDisplay() {
         display.setText(inputHandler.getInput());
+    }
+
+    void updateHistory() {
+        history.setText(inputHandler.getInput());
     }
 }

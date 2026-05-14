@@ -289,8 +289,12 @@ public class InputHandler {
                 break;
             case DOT:
             case OP:
+                openParens--;
+                replaceLast(")", State.CLOSE);
+                break;
             case MINUS:
                 openParens--;
+                if (isOpMinus()) replaceBoth(")", State.CLOSE);
                 replaceLast(")", State.CLOSE);
                 break;
             case NEG_EMPTY:
