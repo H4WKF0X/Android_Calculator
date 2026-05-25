@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 List<Token> tokens = Tokenizer.tokenize(expression);
                 double result = Parser.evaluate(tokens);
 
-                // round to 6 significant figures
+                // round to n significant figures
                 java.math.BigDecimal bd = new java.math.BigDecimal(result)
                         .round(new java.math.MathContext(6));
                 double rounded = bd.doubleValue();

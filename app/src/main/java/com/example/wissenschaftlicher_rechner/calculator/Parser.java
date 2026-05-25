@@ -72,7 +72,7 @@ public class Parser {
         return primary();
     }
 
-    // number or (expression)
+    // number / expression
     private double primary() throws Exception {
         if (pos >= tokens.size()) throw new Exception("Unexpected end of expression");
 
