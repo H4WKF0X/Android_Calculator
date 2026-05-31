@@ -3,6 +3,10 @@ package com.example.wissenschaftlicher_rechner;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.DisplayMetrics;
+import android.widget.TableLayout;
+import android.content.res.Configuration;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Adapt grid ratio to screen dimensions in landscape
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            DisplayMetrics metrics = getResources().getDisplayMetrics();
+            int screenW = metrics.widthPixels;
+            int screenH = metrics.heightPixels;
+
+            TableLayout grid = findViewById(R.id.CalcGrid);
+            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) grid.getLayoutParams();
+            params.dimensionRatio = screenW + ":" + (screenH / 2);
+            grid.setLayoutParams(params);
+        }
 
         display = findViewById(R.id.textView);
         history = findViewById(R.id.historyView);
