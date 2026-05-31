@@ -35,20 +35,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Adapt grid ratio to screen dimensions in landscape
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            DisplayMetrics metrics = getResources().getDisplayMetrics();
-            int screenW = metrics.widthPixels;
-            int screenH = metrics.heightPixels;
-
-            TableLayout grid = findViewById(R.id.CalcGrid);
-            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) grid.getLayoutParams();
-            params.dimensionRatio = screenW + ":" + (screenH / 2);
-            grid.setLayoutParams(params);
-        }
-
-        // Adapt grid ratio for tablets in portrait
-        else if (getResources().getConfiguration().smallestScreenWidthDp >= 600) {
+        // Adapt grid ratio for landscape and tablets
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
+                || getResources().getConfiguration().smallestScreenWidthDp >= 600) {
             DisplayMetrics metrics = getResources().getDisplayMetrics();
             int screenW = metrics.widthPixels;
             int screenH = metrics.heightPixels;
