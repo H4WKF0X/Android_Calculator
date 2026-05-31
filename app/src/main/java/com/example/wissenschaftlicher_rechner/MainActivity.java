@@ -47,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
             grid.setLayoutParams(params);
         }
 
+        // Adapt grid ratio for tablets in portrait
+        else if (getResources().getConfiguration().smallestScreenWidthDp >= 600) {
+            DisplayMetrics metrics = getResources().getDisplayMetrics();
+            int screenW = metrics.widthPixels;
+            int screenH = metrics.heightPixels;
+
+            TableLayout grid = findViewById(R.id.CalcGrid);
+            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) grid.getLayoutParams();
+            params.dimensionRatio = screenW + ":" + (screenH / 2);
+            grid.setLayoutParams(params);
+        }
+
         display = findViewById(R.id.textView);
         history = findViewById(R.id.historyView);
         updateDisplay();
